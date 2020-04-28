@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body style="background-color:powderblue">
+{% extends 'temp/user.html' %}
+{% block base %}
 
 	<form method="post" >
-		<h1 align="center">Add Feedback</h1>
-		<table align="center">
+    {% csrf_token %}
+        <h1 align="center" style="color: white"><b>Add Feedback</b></h1><br>
+		<table align="center" style="color: red">
 			<tr>
-					<td> <b> Enter your feedback</td>
+                <td>  <b>Enter your feedback</b></td>
 					<td>
-						<textarea rows="4" cols="26" input type="text" name="enter your feedback here.." placeholder="Enter your address here" required="">
+						<textarea rows="4" cols="26" input type="text" name="fb" placeholder="Enter your address here" required="">
 					</textarea>
 				</td>
 			</tr>
@@ -21,5 +18,6 @@
 				<td> <input type="submit" name="log" value="SUBMIT"></td>
 
 			</tr>
-		</table>
+        </table></form>
 
+{% endblock %}
