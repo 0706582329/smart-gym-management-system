@@ -1,0 +1,53 @@
+{% extends 'temp/user.html' %}
+{% block base %}
+
+	<form method="post" >
+    {% csrf_token %}
+        <h1 align="center" style="color: white"><b>ADD PURCHASE</b><br></h1>
+		<table align="center"  style="color: red"><br>
+
+					<tr>
+                        <td><b>Product </b></td>
+				<td>
+					<img src="/static/{{ objval.image }}" width="50" height="50"><br>
+				</td>
+
+			</tr>
+
+
+
+			<tr>
+                <td><b>Price</b></td>
+				<td>
+					<input type="text" name="price" value="{{ objval.price }}" placeholder="enter price" readonly="" class="form-control"><br>
+				</td>
+
+			</tr>
+            <tr>
+                <td><b>Account no</b></td>
+				<td>
+					<input type="text" name="accno" value="" placeholder=" A/c No" required="" class="form-control"><br>
+				</td>
+
+			</tr>
+			<tr>
+                <td><b>IFSC CODE</b></td>
+				<td>
+					<input type="text" name="ifsc" placeholder="ifsc" required="" class="form-control"><br>
+				</td>
+
+			</tr>
+
+
+					<tr>
+				<td></td>
+				<td><input type="submit" name="log" value="BUY"></td>
+
+			</tr>
+		</table>
+
+
+
+	</form>
+
+{% endblock %}
