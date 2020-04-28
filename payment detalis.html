@@ -1,0 +1,36 @@
+{% extends 'temp/user.html' %}
+{% block base %}
+	<form method="post" >
+        <h1 align="center" style="color: white"><b>VIEW PAYMENT DETAILS</b></h1><br>
+		<table align="center" border="6"   style="color: white">
+
+                                <tr>
+                                    <td><b style="color: red ">Product Id</b></td>
+                                    <td><b style="color: red">Date of payment</b></td>
+                                    <td><b style="color: red">Price</b></td>
+                                    <td><b style="color: red">Acc/no Date</b></td>
+                                    <td><b style="color: red">Ifsc code</b></td>
+                                    <td><b style="color: red">status</b></td>
+                                
+                                  </tr>
+
+             {% if objval %}
+                {% for obj in objval %}
+                    <tr>
+                    <td>{{  obj.pid }}</td>
+                     <td>{{  obj.paymentdate }}</td>
+                     <td>{{ obj.amount }}</td>
+                     <td>{{ obj.accno }}</td>
+                     <td>{{ obj.ifsc }}</td>
+                     <td>{{ obj.status }}</td>
+
+
+               </tr>
+
+                {% endfor %}
+                 </table></form>
+
+
+            {% endif %}
+				
+		{% endblock %}
