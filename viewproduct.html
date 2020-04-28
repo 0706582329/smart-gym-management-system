@@ -1,26 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body style="background-color:powderblue">
-
+{% extends 'temp/user.html' %}
+{% block base %}
 	<form method="post" >
-		<h1 align="center">VIEW PRODUCTS</h1>
-		<table align="center">
+        <h1 align="center" style="color: white"><b>VIEW PRODUCTS</b></h1><br>
+		<table align="center" border="6"   style="color: white">
 
                                 <tr>
-				<td> <b> Product Type</td>
-                                
-                                
-				<td> <b> Name</td>
-                                
-                                
-				<td> <b> Price</td>
-                                
-                                
-				<td> <b> Expiring Date</td>
+                                    <td><b style="color: red ">Product Type</b></td>
+                                    <td><b style="color: red">Name</b></td>
+                                    <td><b style="color: red">Price</b></td>
+                                    <td><b style="color: red">Expiring Date</b></td>
+                                    <td><b style="color: red">Image</b></td>
+                                    <td><b style="color: red">Discription</b></td>
                                 
                                   </tr>
+
+             {% if objval %}
+                {% for obj in objval %}
+                    <tr>
+                     <td>{{  obj.type }}</td>
+                     <td>{{ obj.name }}</td>
+                     <td>{{ obj.price }}</td>
+                     <td>{{ obj.expdate }}</td>
+                        <td><img src="/static/{{ obj.image }}" width="50" height="50"></td>
+                     <td>{{ obj.description }}</td>
+                      <td><a href="{% url 'order' idd=obj.pid %}">VIEW</a> </td>
+
+               </tr>
+
+                {% endfor %}
+                 </table></form>
+
+
+            {% endif %}
 				
-			
+		{% endblock %}
