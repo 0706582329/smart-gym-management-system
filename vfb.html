@@ -1,0 +1,43 @@
+{% extends 'temp/admin.html' %}
+{% block base %}
+
+	<form method="post" >
+        <h1 align="center" style="color: white"><b>VIEW FEEDBACK</b></h1><br>
+		<table align="center"  border="6"  style="color: black">
+			
+                                <tr>
+				<td> <b style="color: red"> Uid</b></td>
+                                    <th> <b style="color: red"> Feedback </b></th>
+
+
+				<td> <b style="color: red">Date</b></td>
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+
+            {% if objval %}
+                {% for obj in objval %}
+                    <tr>
+                    <td>{{  obj.uid }}</td>
+                     <td>{{ obj.feedback }}</td>
+                     <td>{{ obj.date }}</td>
+
+                    </tr>
+
+                {% endfor %}
+
+
+            {% endif %}
+
+        </table>
+    </form>
+
+        {% endblock %}
